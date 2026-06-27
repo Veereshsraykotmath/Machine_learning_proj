@@ -26,5 +26,21 @@ def main():
     df=pd.read_csv(file_path)
     print(f"Dataset loded successfully Rows:{df.shape[0]},Features:{df.shape[1]}")
 
+
+    #Handling the missing data
+    print("Handling the  Missing data")
+    print("Artificially deleting some 'Hits' (H) data to demonstrate ")
+    
+    df.loc[0:25,'H']=np.nan
+    imputer=SimpleImputer(strategy='median')
+
+    df['H']=pd.to_numeric(df['H'], errors='coerce')
+    df['H']=imputer.fit_transform(df[['H']]).ravel()
+    print(f"imputation complete. 'Hits' (H) now has {df['H'].isnull().sum()} missing values")
+    
+    
 if __name__ =="__main__":
     main()
+
+
+    
