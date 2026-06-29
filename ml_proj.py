@@ -70,10 +70,12 @@ def main():
     print(f"Training Data size :{X_train.shape}")
     print(f"Testing Data size:{X_test.shape}\n")
 
-    # Train Linear Regression model
-    model = LinearRegression()
-    model.fit(X_train, y_train)
-    r2_score = model.score(X_test, y_test)
-    print(f"Linear Regression R^2 on test set: {r2_score:.4f}")
+    #Training Model 
+    model=LinearRegression()
+    model.fit(X_train,y_train)
+
+    predictions=model.predict(X_test)
+    print(predictions)
+
 if __name__=="__main__":            
     main()
