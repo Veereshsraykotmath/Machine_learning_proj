@@ -80,10 +80,10 @@ def main():
 
     # Comparig model prediction to the actual real answer
 
-    actual_wins=y_test.head(3).values
-    predicted_wins=predictions[:3]
+    actual_wins=y_test.head(5).values
+    predicted_wins=predictions[:5]
 
-    for i in range(3):
+    for i in range(5):
         predicted=round(predicted_wins[i])
         actual=actual_wins[i]
         differences=abs(actual-predicted)
@@ -91,7 +91,6 @@ def main():
         print(f"Model Guessed :{predicted}")
         print(f"Real answer :{actual}")
         print(f"Differences :{differences}")
-        print("this program ends here :")
 
-if __name__=="__main__":            
-    main()
+if __name__ == '__main__':
+    main()    
